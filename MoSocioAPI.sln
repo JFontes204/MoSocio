@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI", "MoSocioAPI\MoSocioAPI.csproj", "{87079778-93EE-4183-8DFE-0E7D981D9424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.DAC", "MoSocioAPI.DAC\MoSocioAPI.DAC.csproj", "{3D5ADD14-16AA-44D2-B667-3FBDD77BBCA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.DTO", "MoSocioAPI.DTO\MoSocioAPI.DTO.csproj", "{866F68DA-26DE-462B-8E35-1DDC13C628A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.Shared", "MoSocioAPI.Shared\MoSocioAPI.Shared.csproj", "{7BD855BE-2AAB-4E87-883C-255A4A3F4F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.Services", "MoSocioAPI.Services\MoSocioAPI.Services.csproj", "{68FDCC98-B7AE-4037-8A98-67D9FB6676E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.Model", "MoSocioAPI.Model\MoSocioAPI.Model.csproj", "{FE748D65-DD20-44C1-A524-96BCB1BC4A55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.MachineKeyGenerator", "MoSocioAPI.MachineKeyGenerator\MoSocioAPI.MachineKeyGenerator.csproj", "{11D0A05A-C401-414E-A390-DC1E464DCA9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI.Email", "MoSocioAPI.Email\MoSocioAPI.Email.csproj", "{7EEF463D-E295-40CF-84C2-F79700CC95AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87079778-93EE-4183-8DFE-0E7D981D9424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87079778-93EE-4183-8DFE-0E7D981D9424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87079778-93EE-4183-8DFE-0E7D981D9424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87079778-93EE-4183-8DFE-0E7D981D9424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D5ADD14-16AA-44D2-B667-3FBDD77BBCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D5ADD14-16AA-44D2-B667-3FBDD77BBCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D5ADD14-16AA-44D2-B667-3FBDD77BBCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D5ADD14-16AA-44D2-B667-3FBDD77BBCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866F68DA-26DE-462B-8E35-1DDC13C628A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866F68DA-26DE-462B-8E35-1DDC13C628A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866F68DA-26DE-462B-8E35-1DDC13C628A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866F68DA-26DE-462B-8E35-1DDC13C628A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD855BE-2AAB-4E87-883C-255A4A3F4F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD855BE-2AAB-4E87-883C-255A4A3F4F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD855BE-2AAB-4E87-883C-255A4A3F4F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD855BE-2AAB-4E87-883C-255A4A3F4F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68FDCC98-B7AE-4037-8A98-67D9FB6676E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68FDCC98-B7AE-4037-8A98-67D9FB6676E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68FDCC98-B7AE-4037-8A98-67D9FB6676E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68FDCC98-B7AE-4037-8A98-67D9FB6676E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE748D65-DD20-44C1-A524-96BCB1BC4A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE748D65-DD20-44C1-A524-96BCB1BC4A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE748D65-DD20-44C1-A524-96BCB1BC4A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE748D65-DD20-44C1-A524-96BCB1BC4A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D0A05A-C401-414E-A390-DC1E464DCA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D0A05A-C401-414E-A390-DC1E464DCA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D0A05A-C401-414E-A390-DC1E464DCA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D0A05A-C401-414E-A390-DC1E464DCA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EEF463D-E295-40CF-84C2-F79700CC95AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EEF463D-E295-40CF-84C2-F79700CC95AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EEF463D-E295-40CF-84C2-F79700CC95AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EEF463D-E295-40CF-84C2-F79700CC95AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99F93EAC-2E89-4116-A08F-CADCCFF71C68}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/weddoca
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MoSocioAPI.DAC\\MoSocioAPI.DAC.csproj
+		SccProjectName1 = MoSocioAPI.DAC
+		SccLocalPath1 = MoSocioAPI.DAC
+		SccProjectUniqueName2 = MoSocioAPI.DTO\\MoSocioAPI.DTO.csproj
+		SccProjectName2 = MoSocioAPI.DTO
+		SccLocalPath2 = MoSocioAPI.DTO
+		SccProjectUniqueName3 = MoSocioAPI.Email\\MoSocioAPI.Email.csproj
+		SccProjectName3 = MoSocioAPI.Email
+		SccLocalPath3 = MoSocioAPI.Email
+		SccProjectUniqueName4 = MoSocioAPI.MachineKeyGenerator\\MoSocioAPI.MachineKeyGenerator.csproj
+		SccProjectName4 = MoSocioAPI.MachineKeyGenerator
+		SccLocalPath4 = MoSocioAPI.MachineKeyGenerator
+		SccProjectUniqueName5 = MoSocioAPI.Model\\MoSocioAPI.Model.csproj
+		SccProjectName5 = MoSocioAPI.Model
+		SccLocalPath5 = MoSocioAPI.Model
+		SccProjectUniqueName6 = MoSocioAPI.Services\\MoSocioAPI.Services.csproj
+		SccProjectName6 = MoSocioAPI.Services
+		SccLocalPath6 = MoSocioAPI.Services
+		SccProjectUniqueName7 = MoSocioAPI.Shared\\MoSocioAPI.Shared.csproj
+		SccProjectName7 = MoSocioAPI.Shared
+		SccLocalPath7 = MoSocioAPI.Shared
+		SccProjectUniqueName8 = MoSocioAPI\\MoSocioAPI.csproj
+		SccProjectName8 = MoSocioAPI
+		SccLocalPath8 = MoSocioAPI
+	EndGlobalSection
+EndGlobal
