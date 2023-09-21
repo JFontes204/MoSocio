@@ -65,10 +65,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                Card card = this.cardRepository.GetById<Card>(cardDto.CardId);
+                Card card = this.cardRepository.GetById(cardDto.CardId);
                 if (card != null)
                 {
-                    this.cardRepository.Delete<Card>(card);
+                    this.cardRepository.Delete(card);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;

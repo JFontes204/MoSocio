@@ -55,7 +55,7 @@
     <Compile Include="Repositories\IQuotaRepository.cs" />
     <Compile Include="Repositories\IPartnerRepository.cs" />
     <Compile Include="Repositories\ISociosRepository.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Services\IApplicationUserService.cs" />
     <Compile Include="Services\IPartnerService.cs" />

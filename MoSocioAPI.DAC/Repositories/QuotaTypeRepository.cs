@@ -9,16 +9,19 @@ using System.Linq.Expressions;
 
 namespace MoSocioAPI.DAC.Repositories
 {
+  
     public class QuotaTypeRepository : BaseRepository<QuotaType>, IQuotaTypeRepository
     {
+        private readonly MoSocioAPIDbContext _context;
         public QuotaTypeRepository(MoSocioAPIDbContext context)
             : base(context)
         {
+            _context = context;
         }
 
         public IQueryable<QuotaTypeDto> GetQuotaTypes(QuotaTypeFilter filter)
         {
-            return base.DbContext.QuotaTypes.AsExpandable().Where(BuildWhereClause(filter)).Select(quotaType =>
+            return _context.QuotaTypes.AsExpandable().Where(BuildWhereClause(filter)).Select(quotaType =>
            new QuotaTypeDto()
            {
                QuotaTypeId = quotaType.QuotaTypeId,

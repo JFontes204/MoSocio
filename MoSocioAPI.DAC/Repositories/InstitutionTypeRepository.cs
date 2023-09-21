@@ -11,14 +11,17 @@ namespace MoSocioAPI.DAC.Repositories
 {
     public class InstitutionTypeRepository : BaseRepository<InstitutionType>, IInstitutionTypeRepository
     {
+        private readonly MoSocioAPIDbContext _context;
+
         public InstitutionTypeRepository(MoSocioAPIDbContext context)
             : base(context)
         {
+            _context = context;
         }
 
         public IQueryable<InstitutionTypeDto> GetInstitutionTypes(InstitutionTypeFilter filter)
         {
-            return base.DbContext.InstitutionTypes.AsExpandable().Where(BuildWhereClause(filter)).Select(institutionType =>
+            return _context.InstitutionTypes.AsExpandable().Where(BuildWhereClause(filter)).Select(institutionType =>
            new InstitutionTypeDto()
            {
                InstitutionTypeId = institutionType.InstitutionTypeId,

@@ -126,8 +126,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoSocioDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AbstractRepository.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\InstitutionTypeRepository.cs" />
     <Compile Include="Repositories\PartnerTypeRepository.cs" />
     <Compile Include="Repositories\PartnerRepository.cs" />
@@ -136,6 +134,7 @@
     <Compile Include="Repositories\ProvinceRepository.cs" />
     <Compile Include="Repositories\QuotaTypeRepository.cs" />
     <Compile Include="Repositories\QuotaRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\SociosRepository.cs" />
     <Compile Include="Security\ApplicationOAuthProvider.cs" />
     <Compile Include="Security\ApplicationUserManager.cs" />

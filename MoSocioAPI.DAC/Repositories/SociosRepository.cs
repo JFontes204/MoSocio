@@ -11,14 +11,16 @@ namespace MoSocioAPI.DAC.Repositories
 {
     public class SociosRepository : BaseRepository<Socio>, ISociosRepository
     {
+        private readonly MoSocioAPIDbContext _context;
         public SociosRepository(MoSocioAPIDbContext context)
             : base(context)
         {
+            _context = context;
         }
 
         public IQueryable<SocioDto> GetSocios(SociosFilter filter)
         {
-            return base.DbContext.Socios.AsExpandable().Where(BuildWhereClause(filter)).Select(soc =>
+            return _context.Socios.AsExpandable().Where(BuildWhereClause(filter)).Select(soc =>
            new SocioDto()
            {
                SocioId = soc.SocioId,

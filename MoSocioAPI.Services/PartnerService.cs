@@ -105,10 +105,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                Partner partner = this.partnerRepository.GetById<Partner>(dto.PartnerId);
+                Partner partner = this.partnerRepository.GetById(dto.PartnerId);
                 if (partner != null)
                 {
-                    this.partnerRepository.Delete<Partner>(partner);
+                    this.partnerRepository.Delete(partner);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;
@@ -132,10 +132,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                PartnerType partnerType = this.partnerTypeRepository.GetById<PartnerType>(dto.PartnerTypeId);
+                PartnerType partnerType = this.partnerTypeRepository.GetById(dto.PartnerTypeId);
                 if (partnerType != null)
                 {
-                    this.partnerTypeRepository.Delete<PartnerType>(partnerType);
+                    this.partnerTypeRepository.Delete(partnerType);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;

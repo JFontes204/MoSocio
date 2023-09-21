@@ -76,6 +76,8 @@
     <Compile Include="PartnerDto.cs" />
     <Compile Include="PageInfoDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDto.cs" />
+    <Compile Include="UserLoginDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

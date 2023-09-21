@@ -2,7 +2,7 @@
 
 namespace MoSocioAPI.Shared.Repositories
 {
-    public interface IUserRepository : IRepository
+    public interface IUserRepository : IBaseRepository<User>
     {
     }
 }

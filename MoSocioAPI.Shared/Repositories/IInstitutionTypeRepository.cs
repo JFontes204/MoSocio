@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MoSocioAPI.Shared.Repositories
 {
-    public interface IInstitutionTypeRepository : IRepository
+    public interface IInstitutionTypeRepository : IBaseRepository<InstitutionType>
     {
         IQueryable<InstitutionTypeDto> GetInstitutionTypes(InstitutionTypeFilter filter);
     }

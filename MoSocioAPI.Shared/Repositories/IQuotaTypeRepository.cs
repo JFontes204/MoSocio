@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MoSocioAPI.Shared.Repositories
 {
-    public interface IQuotaTypeRepository : IRepository
+    public interface IQuotaTypeRepository : IBaseRepository<QuotaType>
     {
         IQueryable<QuotaTypeDto> GetQuotaTypes(QuotaTypeFilter filter);
     }
