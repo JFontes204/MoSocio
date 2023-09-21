@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using InvoicingPlan.Model;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MoSocioAPI.Model
@@ -23,5 +24,7 @@ namespace MoSocioAPI.Model
         public int InstitutionTypeId { get; set; }
         [ForeignKey("InstitutionTypeId")]
         public InstitutionType InstitutionType { get; set; }
+
+        //public User[] Users { get; set; }
     }
 }
