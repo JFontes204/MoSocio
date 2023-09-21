@@ -5,7 +5,9 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MoSocioAPI.DAC
 {
-    public class MoSocioAPIDbContext : IdentityDbContext<ApplicationUser>
+    public class MoSocioAPIDbContext : DbContext
+        
+        //IdentityDbContext<ApplicationUser>
     {
         public MoSocioAPIDbContext()
             : base("name=MoSocioAPI")
