@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using InvoicingPlan.Model;
 using MoSocioAPI.Model;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MoSocioAPI.DAC
 {
@@ -25,12 +24,12 @@ namespace MoSocioAPI.DAC
 
             // Define the default database schema
             //modelBuilder.HasDefaultSchema("MoSocioAPI");
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Entity<ApplicationUser>().ToTable("AppUsers");
-            modelBuilder.Entity<IdentityRole>().ToTable("Roles");
-            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
-            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
-            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
+            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Entity<ApplicationUser>().ToTable("AppUsers");
+            //modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+            //modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
+            //modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
+            //modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
         }
 
         public DbSet<Socio> Socios { get; set; }
@@ -42,6 +41,8 @@ namespace MoSocioAPI.DAC
         public DbSet<PartnerType> PartnerTypes { get; set; }
         public DbSet<Institution> Institutions { get; set; }
         public DbSet<InstitutionType> InstitutionTypes { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
     }
 }
