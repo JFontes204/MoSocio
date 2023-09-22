@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using InvoicingPlan.Model;
 using MoSocioAPI.DTO;
 using MoSocioAPI.Model;
 
@@ -19,6 +20,7 @@ namespace MoSocioAPI.Api.App_Start
             Mapper.CreateMap<PartnerTypeDto, PartnerType>().ReverseMap();
             Mapper.CreateMap<ApplicationUserDto, ApplicationUser>().ReverseMap();
             Mapper.CreateMap<InstitutionTypeDto, InstitutionType>().ReverseMap();
+            Mapper.CreateMap<UserDto, User>().ReverseMap(); 
         }
     }
 }

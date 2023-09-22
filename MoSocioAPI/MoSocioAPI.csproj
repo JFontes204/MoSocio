@@ -183,6 +183,7 @@
     <Compile Include="api\CardController.cs" />
     <Compile Include="api\QuotaController.cs" />
     <Compile Include="api\SociosController.cs" />
+    <Compile Include="api\UserController.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\OAuthConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />

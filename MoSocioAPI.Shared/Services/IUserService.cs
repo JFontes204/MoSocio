@@ -8,9 +8,9 @@ namespace MoSocioAPI.Shared.Services
     {
         IEnumerable<UserDto> GetAllUSers();
         UserDto GetUserById(int id);
-        UserDto GetuserByLogin(string userName, string password); 
-        ServerResponseDto SaveUser(UserDto user);
-        void UpdateUser(UserDto user);
+        UserDto GetuserByLogin(UserLoginDto login); 
+        ServerResponseDto SaveUser(UserDto userDto);
+        void UpdateUser(UserDto userDto);
         void DeleteUser(int id);
 
     }

@@ -38,10 +38,10 @@ namespace MoSocioAPI.Services
             return Mapper.Map<UserDto>(user); 
         }
 
-        public UserDto GetuserByLogin(string userName, string password)
+        public UserDto GetuserByLogin(UserLoginDto loginDto)
         {
-            var passwordEncripted = EncryptPassword(password);
-            var userEntity = _repository.GetUserByLogin(userName, passwordEncripted);
+            var passwordEncripted = EncryptPassword(loginDto.Password);
+            var userEntity = _repository.GetUserByLogin(loginDto.UserName, passwordEncripted);
 
             return Mapper.Map<UserDto>(userEntity); 
         }
@@ -73,8 +73,6 @@ namespace MoSocioAPI.Services
             var md5 = MD5.Create();
             var code = Encoding.ASCII.GetBytes(password);
             var hash = md5.ComputeHash(code);
-
-            var valor = hash.ToString();
 
             StringBuilder sb = new StringBuilder();
             for(int i = 0; i < hash.Length; i++)

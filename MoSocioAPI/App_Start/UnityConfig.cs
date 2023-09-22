@@ -41,6 +41,9 @@ namespace MoSocioAPI.Api
             container.RegisterType<IInstitutionRepository, InstitutionRepository>();
             container.RegisterType<IPartnerTypeRepository, PartnerTypeRepository>();
             container.RegisterType<IInstitutionTypeRepository, InstitutionTypeRepository>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IRoleRepository, RoleRepository>();
+           
 
             #endregion
 
@@ -52,6 +55,7 @@ namespace MoSocioAPI.Api
             container.RegisterType<IPartnerService, PartnerService>();
             container.RegisterType<IProvinceService, ProvinceService>();
             container.RegisterType<IInstitutionService, InstitutionService>();
+            container.RegisterType<IUserService, UserService>();
 
             container.RegisterType(typeof(IRoleStore<,>), typeof(RoleStore<IdentityRole>), new InjectionConstructor(typeof(MoSocioAPIDbContext)));
             container.RegisterType(typeof(IUserStore<>), typeof(UserStore<ApplicationUser>), new InjectionConstructor(typeof(MoSocioAPIDbContext)));

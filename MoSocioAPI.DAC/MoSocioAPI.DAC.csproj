@@ -135,7 +135,9 @@
     <Compile Include="Repositories\QuotaTypeRepository.cs" />
     <Compile Include="Repositories\QuotaRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\SociosRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Security\ApplicationOAuthProvider.cs" />
     <Compile Include="Security\ApplicationUserManager.cs" />
     <Compile Include="UnitOfWork.cs" />

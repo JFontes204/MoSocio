@@ -1,16 +1,13 @@
 ﻿using MoSocioAPI.DTO;
 using MoSocioAPI.DTO.filters;
 using MoSocioAPI.Shared.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 namespace MoSocioAPI.Api.api
 {
-    [RoutePrefix("api/users")]
+    [RoutePrefix("api/oldusers")]
     public class ApplicationUserController : ApiController
     {
         private IApplicationUserService applicationUserService;
