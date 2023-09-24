@@ -40,7 +40,17 @@ namespace MoSocioAPI.DAC.ConfigurationData
                 .HasMaxLength(200);
 
             //Relacionamento
+            HasMany(x => x.Roles).WithMany(x => x.Users).Map(m =>
+            {
+                m.ToTable("UserRole");
+                m.MapLeftKey("UserId");
+                m.MapRightKey("RoleId");
+            });
 
+            HasRequired(x => x.Institution)
+                .WithMany(x => x.Users)
+                .HasForeignKey(x => x.InstitutionId)
+                .WillCascadeOnDelete();
         }
     }
 }

@@ -23,6 +23,7 @@ namespace MoSocioAPI.DAC.ConfigurationData
                 .HasMaxLength(100);
 
             //Relacionamento
+            
         }
     }
 }
