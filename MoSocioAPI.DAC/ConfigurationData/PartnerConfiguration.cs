@@ -70,8 +70,22 @@ namespace MoSocioAPI.DAC.ConfigurationData
                     .HasColumnType("NVARCHAR")
                     .HasMaxLength(200);
 
-
             //Relacionamento
+            HasRequired(x => x.Institution)
+                .WithMany(x => x.partners)
+                .HasForeignKey(x => x.InstitutionId)
+                .WillCascadeOnDelete(false); 
+
+            HasMany(x=>x.Quotas)
+                .WithRequired(x=>x.Partner)
+                .HasForeignKey(x=>x.PartnerId)
+                .WillCascadeOnDelete(false);
+
+            HasRequired(x => x.PartnerType)
+                .WithMany(x => x.Partners)
+                .HasForeignKey(x => x.PartnerTypeId)
+                .WillCascadeOnDelete(false);
+
 
         }
     }

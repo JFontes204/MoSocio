@@ -38,9 +38,18 @@ namespace MoSocioAPI.DAC.ConfigurationData
 
             Property(x => x.DateExpiration)
                     .IsRequired()
-                    .HasColumnName("DateExpiration"); 
+                    .HasColumnName("DateExpiration");
 
             //Relacionamento
+            HasRequired(x => x.Institution)
+                .WithMany(x => x.Cards)
+                .HasForeignKey(x => x.InstitutionId)
+                .WillCascadeOnDelete(false); 
+
+            HasRequired(x=>x.Partner)
+                .WithMany(x=>x.Cards)
+                .HasForeignKey(x=>x.PartnerId)
+                .WillCascadeOnDelete(false);
 
         }
     }

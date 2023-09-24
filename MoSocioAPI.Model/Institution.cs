@@ -18,5 +18,10 @@ namespace MoSocioAPI.Model
         public int InstitutionTypeId { get; set; }
         public InstitutionType InstitutionType { get; set; }
         public List<User> Users { get; set; }
+        public List<QuotaType> QuotaTypes { get; set; }
+        public List<Partner> partners { get; set; }
+        public List<PartnerType> PartnerTypes { get; set; }
+        public List<Card> Cards { get; set; }
+        public List<Quota> Quotas { get; set; }
     }
 }

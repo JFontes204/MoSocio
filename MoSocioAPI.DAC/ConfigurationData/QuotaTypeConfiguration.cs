@@ -23,6 +23,10 @@ namespace MoSocioAPI.DAC.ConfigurationData
                     .HasMaxLength(200);
 
             //Relacionamento
+            HasRequired(x => x.Institution)
+                .WithMany(x => x.QuotaTypes)
+                .HasForeignKey(x => x.InstitutionId)
+                .WillCascadeOnDelete(false); 
 
         }
     }

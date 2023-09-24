@@ -27,6 +27,15 @@ namespace MoSocioAPI.DAC.ConfigurationData
                     .HasColumnType("DATETIME2");
 
             //Relacionamentos
+            HasRequired(x => x.QuotaType)
+                .WithMany(x => x.Quotas)
+                .HasForeignKey(x => x.QuotaTypeId)
+                .WillCascadeOnDelete();
+
+            HasRequired(x => x.Institution)
+                .WithMany(x => x.Quotas)
+                .HasForeignKey(x => x.InstitutionId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

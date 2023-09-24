@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace MoSocioAPI.Model
 {
@@ -24,5 +24,7 @@ namespace MoSocioAPI.Model
         public PartnerType PartnerType { get; set; }
         public int InstitutionId { get; set; }
         public Institution Institution { get; set; }
+        public List<Card> Cards { get; set; }
+        public List<Quota> Quotas { get; set; }
     }
 }
