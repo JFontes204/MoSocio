@@ -17,11 +17,11 @@ namespace MoSocioAPI.Model
         public Province Province { get; set; }
         public int InstitutionTypeId { get; set; }
         public InstitutionType InstitutionType { get; set; }
-        public List<User> Users { get; set; }
-        public List<QuotaType> QuotaTypes { get; set; }
-        public List<Partner> partners { get; set; }
-        public List<PartnerType> PartnerTypes { get; set; }
-        public List<Card> Cards { get; set; }
-        public List<Quota> Quotas { get; set; }
+        public List<User> Users { get; set; } = new List<User>();
+        public List<QuotaType> QuotaTypes { get; set; } =new List<QuotaType>();
+        public List<Partner> partners { get; set; } = new List<Partner>();
+        public List<PartnerType> PartnerTypes { get; set; } = new List<PartnerType>(); 
+        public List<Card> Cards { get; set; } = new List<Card>();
+        public List<Quota> Quotas { get; set; } = new List<Quota>(); 
     }
 }

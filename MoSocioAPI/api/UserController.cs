@@ -1,8 +1,12 @@
-﻿using MoSocioAPI.DTO;
+﻿using AutoMapper;
+using MoSocioAPI.DTO;
+using MoSocioAPI.Services;
 using MoSocioAPI.Shared.Services;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Services.Description;
 
 namespace MoSocioAPI.api
 {
@@ -10,10 +14,12 @@ namespace MoSocioAPI.api
     public class UserController: ApiController
     {
         private readonly IUserService _service;
+        private readonly TokenService _token; 
 
-        public UserController(IUserService service)
+        public UserController(IUserService service, TokenService token)
         {
             _service = service;
+            _token = token;
         }
 
         [HttpPost]
@@ -25,12 +31,26 @@ namespace MoSocioAPI.api
 
         //Todo. 
 
-        [HttpGet]
-        [Route("teste")]
-        public IHttpActionResult Get()
+        [HttpPost]
+        [Route("login")]
+        public IHttpActionResult Login([FromBody] UserLoginDto loginDto)
         {
+            var userDto = _service.GetuserByLogin(loginDto);
 
-            return Ok("Ola Deu Certo"); 
+            if (userDto is null)
+                return BadRequest("user ou password Invalido");
+
+            var token = _token.GeneratorToken(userDto); 
+
+            return Ok(new
+            {
+                UserName = userDto.UserName,
+                FullName = userDto.FullName,
+                Phone = userDto.PhoneNumber,
+                Email = userDto.Email,
+                Token = token, 
+                Roles = userDto.Roles,
+            }); 
         }
     }
 }

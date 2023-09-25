@@ -7,6 +7,6 @@ namespace MoSocioAPI.Model
     {
         public int InstitutionTypeId { get; set; }
         public string Label { get; set; }
-        public List<Institution> Institutions { get; set; }
+        public List<Institution> Institutions { get; set; } = new List<Institution>();
     }
 }

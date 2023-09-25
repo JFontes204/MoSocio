@@ -6,7 +6,7 @@ namespace MoSocioAPI.Model
     {
         public int ProvinceId { get; set; }
         public string Name { get; set; }
-        public List<Institution> Institutions { get; set; }
-        public List<Partner> Partners { get; set; }
+        public List<Institution> Institutions { get; set; } = new List<Institution>();
+        public List<Partner> Partners { get; set; } =new List<Partner>();
     }
 }

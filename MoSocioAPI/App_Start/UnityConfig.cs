@@ -56,6 +56,7 @@ namespace MoSocioAPI.Api
             container.RegisterType<IProvinceService, ProvinceService>();
             container.RegisterType<IInstitutionService, InstitutionService>();
             container.RegisterType<IUserService, UserService>();
+            container.RegisterType<TokenService, TokenService>();
 
             container.RegisterType(typeof(IRoleStore<,>), typeof(RoleStore<IdentityRole>), new InjectionConstructor(typeof(MoSocioAPIDbContext)));
             container.RegisterType(typeof(IUserStore<>), typeof(UserStore<ApplicationUser>), new InjectionConstructor(typeof(MoSocioAPIDbContext)));
