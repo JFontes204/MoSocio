@@ -135,9 +135,9 @@
     <Compile Include="Migrations\202201301941048_refactoracao_do_modelo.Designer.cs">
       <DependentUpon>202201301941048_refactoracao_do_modelo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202309232259465_refatorandoModeloAddUserERole.cs" />
-    <Compile Include="Migrations\202309232259465_refatorandoModeloAddUserERole.designer.cs">
-      <DependentUpon>202309232259465_refatorandoModeloAddUserERole.cs</DependentUpon>
+    <Compile Include="Migrations\202309251325311_UpdateModelsUserAndRole.cs" />
+    <Compile Include="Migrations\202309251325311_UpdateModelsUserAndRole.designer.cs">
+      <DependentUpon>202309251325311_UpdateModelsUserAndRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoSocioDbContext.cs" />
@@ -199,8 +199,8 @@
     <EmbeddedResource Include="Migrations\202201301941048_refactoracao_do_modelo.resx">
       <DependentUpon>202201301941048_refactoracao_do_modelo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202309232259465_refatorandoModeloAddUserERole.resx">
-      <DependentUpon>202309232259465_refatorandoModeloAddUserERole.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202309251325311_UpdateModelsUserAndRole.resx">
+      <DependentUpon>202309251325311_UpdateModelsUserAndRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

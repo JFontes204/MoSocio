@@ -1,4 +1,5 @@
 ﻿using MoSocioAPI.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace MoSocioAPI.DAC.ConfigurationData
@@ -14,7 +15,7 @@ namespace MoSocioAPI.DAC.ConfigurationData
                     .IsRequired()
                     .HasColumnName("Id")
                     .HasColumnType("INT")
-                    .HasDatabaseGeneratedOption(default);
+                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Name)
                     .IsRequired()
@@ -60,13 +61,13 @@ namespace MoSocioAPI.DAC.ConfigurationData
 
             Property(x => x.Email)
                     .IsRequired()
-                    .HasColumnName("WhatsApp")
+                    .HasColumnName("Email")
                     .HasColumnType("NVARCHAR")
                     .HasMaxLength(200);
 
             Property(x => x.HomeAddress)
                     .IsRequired()
-                    .HasColumnName("WhatsApp")
+                    .HasColumnName("HomeAddress")
                     .HasColumnType("NVARCHAR")
                     .HasMaxLength(200);
 
@@ -74,7 +75,7 @@ namespace MoSocioAPI.DAC.ConfigurationData
             HasRequired(x => x.Institution)
                 .WithMany(x => x.partners)
                 .HasForeignKey(x => x.InstitutionId)
-                .WillCascadeOnDelete(false); 
+                .WillCascadeOnDelete(false);
 
             HasMany(x=>x.Quotas)
                 .WithRequired(x=>x.Partner)

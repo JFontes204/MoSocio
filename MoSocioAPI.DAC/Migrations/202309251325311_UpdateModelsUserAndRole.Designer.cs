@@ -7,13 +7,13 @@ namespace MoSocioAPI.DAC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class refatorandoModeloAddUserERole : IMigrationMetadata
+    public sealed partial class UpdateModelsUserAndRole : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(refatorandoModeloAddUserERole));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateModelsUserAndRole));
         
         string IMigrationMetadata.Id
         {
-            get { return "202309232259465_refatorandoModeloAddUserERole"; }
+            get { return "202309251325311_UpdateModelsUserAndRole"; }
         }
         
         string IMigrationMetadata.Source

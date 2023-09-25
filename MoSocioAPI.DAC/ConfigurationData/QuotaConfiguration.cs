@@ -1,4 +1,5 @@
 ﻿using MoSocioAPI.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace MoSocioAPI.DAC.ConfigurationData
@@ -8,13 +9,13 @@ namespace MoSocioAPI.DAC.ConfigurationData
         public QuotaConfiguration()
         {
             ToTable("Quotas");
-            HasKey(x => x.PartnerId);
+            HasKey(x => x.QuotaId);
 
             Property(x => x.QuotaId)
                     .IsRequired()
                     .HasColumnName("Id")
                     .HasColumnType("INT")
-                    .HasDatabaseGeneratedOption(default);
+                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Value)
                     .IsRequired()

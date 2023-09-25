@@ -1,4 +1,5 @@
 ﻿using MoSocioAPI.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace MoSocioAPI.DAC.ConfigurationData
@@ -15,7 +16,7 @@ namespace MoSocioAPI.DAC.ConfigurationData
                 .IsRequired()
                 .HasColumnName("Id")
                 .HasColumnType("INT")
-                .HasDatabaseGeneratedOption(default);
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
         Property(x => x.CardNumber)
                 .IsRequired()
