@@ -105,10 +105,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                Quota quota = this.quotaRepository.GetById<Quota>(dto.QuotaId);
+                Quota quota = this.quotaRepository.GetById(dto.QuotaId);
                 if (quota != null)
                 {
-                    this.quotaRepository.Delete<Quota>(quota);
+                    this.quotaRepository.Delete(quota);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;
@@ -132,10 +132,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                QuotaType quotaType = this.quotaTypeRepository.GetById<QuotaType>(dto.QuotaTypeId);
+                QuotaType quotaType = this.quotaTypeRepository.GetById(dto.QuotaTypeId);
                 if (quotaType != null)
                 {
-                    this.quotaTypeRepository.Delete<QuotaType>(quotaType);
+                    this.quotaTypeRepository.Delete(quotaType);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;

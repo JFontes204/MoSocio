@@ -1,13 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 
 namespace MoSocioAPI.Model
 {
-    [Table("InstitutionTypes")]
+
     public class InstitutionType
     {
-        [Key]
         public int InstitutionTypeId { get; set; }
         public string Label { get; set; }
+        public List<Institution> Institutions { get; set; } = new List<Institution>();
     }
 }

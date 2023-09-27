@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoSocioAPI", "MoSocioAPI\MoSocioAPI.csproj", "{87079778-93EE-4183-8DFE-0E7D981D9424}"
 EndProject
@@ -63,35 +63,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99F93EAC-2E89-4116-A08F-CADCCFF71C68}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/weddoca
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = MoSocioAPI.DAC\\MoSocioAPI.DAC.csproj
-		SccProjectName1 = MoSocioAPI.DAC
-		SccLocalPath1 = MoSocioAPI.DAC
-		SccProjectUniqueName2 = MoSocioAPI.DTO\\MoSocioAPI.DTO.csproj
-		SccProjectName2 = MoSocioAPI.DTO
-		SccLocalPath2 = MoSocioAPI.DTO
-		SccProjectUniqueName3 = MoSocioAPI.Email\\MoSocioAPI.Email.csproj
-		SccProjectName3 = MoSocioAPI.Email
-		SccLocalPath3 = MoSocioAPI.Email
-		SccProjectUniqueName4 = MoSocioAPI.MachineKeyGenerator\\MoSocioAPI.MachineKeyGenerator.csproj
-		SccProjectName4 = MoSocioAPI.MachineKeyGenerator
-		SccLocalPath4 = MoSocioAPI.MachineKeyGenerator
-		SccProjectUniqueName5 = MoSocioAPI.Model\\MoSocioAPI.Model.csproj
-		SccProjectName5 = MoSocioAPI.Model
-		SccLocalPath5 = MoSocioAPI.Model
-		SccProjectUniqueName6 = MoSocioAPI.Services\\MoSocioAPI.Services.csproj
-		SccProjectName6 = MoSocioAPI.Services
-		SccLocalPath6 = MoSocioAPI.Services
-		SccProjectUniqueName7 = MoSocioAPI.Shared\\MoSocioAPI.Shared.csproj
-		SccProjectName7 = MoSocioAPI.Shared
-		SccLocalPath7 = MoSocioAPI.Shared
-		SccProjectUniqueName8 = MoSocioAPI\\MoSocioAPI.csproj
-		SccProjectName8 = MoSocioAPI
-		SccLocalPath8 = MoSocioAPI
 	EndGlobalSection
 EndGlobal

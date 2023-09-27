@@ -59,8 +59,8 @@ namespace MoSocioAPI.Services
             int statusId;
             try
             {
-                Socio socio = this.sociosRepository.GetById<Socio>(socioDto.SocioId);
-                this.sociosRepository.Delete<Socio>(socio);
+                Socio socio = this.sociosRepository.GetById(socioDto.SocioId);
+                this.sociosRepository.Delete(socio);
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;
             }

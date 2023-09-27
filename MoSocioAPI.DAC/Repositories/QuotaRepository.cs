@@ -11,14 +11,16 @@ namespace MoSocioAPI.DAC.Repositories
 {
     public class QuotaRepository : BaseRepository<Quota>, IQuotaRepository
     {
+        private readonly MoSocioAPIDbContext _context;
         public QuotaRepository(MoSocioAPIDbContext context)
             : base(context)
         {
+            _context = context;
         }
 
         public IQueryable<QuotaDto> GetQuotas(QuotaFilter filter)
         {
-            return base.DbContext.Quotas.AsExpandable().Where(BuildWhereClause(filter)).Select(quota =>
+            return _context.Quotas.AsExpandable().Where(BuildWhereClause(filter)).Select(quota =>
            new QuotaDto()
            {
                QuotaId = quota.QuotaId,

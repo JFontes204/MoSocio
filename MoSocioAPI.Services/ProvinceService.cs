@@ -55,10 +55,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                Province province = this.provinceRepository.GetById<Province>(model.ProvinceId);
+                Province province = this.provinceRepository.GetById(model.ProvinceId);
                 if (province != null)
                 {
-                    this.provinceRepository.Delete<Province>(province);
+                    this.provinceRepository.Delete(province);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;

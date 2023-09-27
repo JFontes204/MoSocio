@@ -103,10 +103,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                Institution institution = this.institutionRepository.GetById<Institution>(dto.InstitutionId);
+                Institution institution = this.institutionRepository.GetById(dto.InstitutionId);
                 if (institution != null)
                 {
-                    this.institutionRepository.Delete<Institution>(institution);
+                    this.institutionRepository.Delete(institution);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;
@@ -130,10 +130,10 @@ namespace MoSocioAPI.Services
             int statusId = 2;
             try
             {
-                InstitutionType institutionType = this.institutionTypeRepository.GetById<InstitutionType>(dto.InstitutionTypeId);
+                InstitutionType institutionType = this.institutionTypeRepository.GetById(dto.InstitutionTypeId);
                 if (institutionType != null)
                 {
-                    this.institutionTypeRepository.Delete<InstitutionType>(institutionType);
+                    this.institutionTypeRepository.Delete(institutionType);
                 }
                 result = this.UoW.SaveChanges() != 0;
                 statusId = 1;

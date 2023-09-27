@@ -11,14 +11,16 @@ namespace MoSocioAPI.DAC.Repositories
 {
     public class CardRepository : BaseRepository<Card>, ICardRepository
     {
-        public CardRepository(MoSocioAPIDbContext context)
-            : base(context)
+        private readonly MoSocioAPIDbContext _context;
+
+        public CardRepository(MoSocioAPIDbContext context): base(context)
         {
+            _context = context;
         }
 
         public IQueryable<CardDto> GetCards(CardFilter filter)
         {
-            return base.DbContext.Cards.AsExpandable().Where(BuildWhereClause(filter)).Select(card =>
+            return _context.Cards.AsExpandable().Where(BuildWhereClause(filter)).Select(card =>
            new CardDto()
            {
                CardId = card.CardId,
@@ -32,6 +34,11 @@ namespace MoSocioAPI.DAC.Repositories
                InstitutionId = card.InstitutionId,
                Institution = card.Institution
            });
+        }
+
+        public void Update<T>(T entity)
+        {
+            throw new NotImplementedException();
         }
 
         private Expression<Func<Card, bool>> BuildWhereClause(CardFilter filter)

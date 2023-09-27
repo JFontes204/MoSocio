@@ -10,13 +10,15 @@ namespace MoSocioAPI.DAC.Repositories
 {
     public class ProvinceRepository : BaseRepository<Province>, IProvinceRepository
     {
+        private readonly MoSocioAPIDbContext _context;
         public ProvinceRepository(MoSocioAPIDbContext context)
             : base(context)
         {
+            _context = context;
         }
         public IQueryable<ProvinceDto> GetProvinces()
         {
-            return base.DbContext.Provinces.AsExpandable().Where(BuildWhereClause()).Select(province =>
+            return _context.Provinces.AsExpandable().Where(BuildWhereClause()).Select(province =>
             new ProvinceDto()
             {
                 ProvinceId = province.ProvinceId,
