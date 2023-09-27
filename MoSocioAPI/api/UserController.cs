@@ -1,12 +1,9 @@
-﻿using AutoMapper;
-using MoSocioAPI.DTO;
+﻿using MoSocioAPI.DTO;
 using MoSocioAPI.Services;
 using MoSocioAPI.Shared.Services;
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Services.Description;
 
 namespace MoSocioAPI.api
 {
@@ -29,8 +26,6 @@ namespace MoSocioAPI.api
             return Request.CreateResponse(HttpStatusCode.Created, _service.SaveUser(userDto)); 
         }
 
-        //Todo. 
-
         [HttpPost]
         [Route("login")]
         public IHttpActionResult Login([FromBody] UserLoginDto loginDto)
@@ -51,6 +46,20 @@ namespace MoSocioAPI.api
                 Token = token, 
                 Roles = userDto.Roles,
             }); 
+        }
+        [HttpGet]
+        [Route("users")]
+        [Authorize(Roles ="admin")]
+        public IHttpActionResult GetAll()
+        {
+           return Ok(_service.GetAllUSers()); 
+        }
+        [HttpGet]
+        [Route("{id:int}")]
+        [Authorize]
+        public IHttpActionResult GetById([FromUri] int id)
+        {
+            return Ok(_service.GetUserById(id));
         }
     }
 }

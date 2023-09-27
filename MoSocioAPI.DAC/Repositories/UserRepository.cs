@@ -15,7 +15,6 @@ namespace MoSocioAPI.DAC.Repositories
 
         public User GetUserByLogin(string userName, string password)
         {
-            //TODO hasserar a passWord ou então a password já será passada aqui como hash
             var user = _context.Users.FirstOrDefault(x => x.UserName == userName 
                                 && x.Password == password);
             if (user is null)
