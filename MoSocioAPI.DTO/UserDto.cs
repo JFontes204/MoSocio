@@ -27,6 +27,8 @@ namespace MoSocioAPI.DTO
         public string ConfirmPassword { get; set; }
         public int InstitutionId { get; set; }
         public Institution Institution { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "é Obrigatorio informar no minimo uma role")]
         public List<Role> Roles { get; set; }
     }
 }

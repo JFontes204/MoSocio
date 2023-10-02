@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace InvoicingPlan.Model
 {
@@ -6,6 +7,8 @@ namespace InvoicingPlan.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
+
+        [JsonIgnore]
+        public List<User> Users { get; set; }
     }
 }

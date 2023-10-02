@@ -1,15 +1,12 @@
 ﻿
 using MoSocioAPI.Model;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InvoicingPlan.Model
 {
 
     public class User
     {
-
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
@@ -18,6 +15,6 @@ namespace InvoicingPlan.Model
         public string Password { get; set; }
         public int  InstitutionId { get; set; }
         public Institution Institution { get; set; }
-        public List<Role> Roles { get; set; } = new List<Role>(); 
+        public List<Role> Roles { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace MoSocioAPI.Shared.Services
 {
     public interface IUserService : IDisposable
     {
-        IEnumerable<UserDto> GetAllUSers();
+        IEnumerable<UserDto> GetAllUSersWithRoles();
         UserDto GetUserById(int id);
         UserDto GetuserByLogin(UserLoginDto login); 
         ServerResponseDto SaveUser(UserDto userDto);

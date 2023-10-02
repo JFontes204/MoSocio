@@ -49,10 +49,10 @@ namespace MoSocioAPI.api
         }
         [HttpGet]
         [Route("users")]
-        [Authorize(Roles ="admin")]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult GetAll()
         {
-           return Ok(_service.GetAllUSers()); 
+           return Ok(_service.GetAllUSersWithRoles()); 
         }
         [HttpGet]
         [Route("{id:int}")]

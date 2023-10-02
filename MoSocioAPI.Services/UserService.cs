@@ -4,6 +4,7 @@ using MoSocioAPI.DTO;
 using MoSocioAPI.Shared;
 using MoSocioAPI.Shared.Repositories;
 using MoSocioAPI.Shared.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -25,9 +26,9 @@ namespace MoSocioAPI.Services
             _repository.Delete(user); 
         }
 
-        public IEnumerable<UserDto> GetAllUSers()
+        public IEnumerable<UserDto> GetAllUSersWithRoles()
         {
-            var usersEntity = _repository.GetAll().ToList();
+            var usersEntity = _repository.GetAllUserWithRole().ToList();
 
             return Mapper.Map<IEnumerable<UserDto>>(usersEntity);
         }
@@ -48,18 +49,34 @@ namespace MoSocioAPI.Services
 
         public ServerResponseDto SaveUser(UserDto userDto)
         {
-            bool result; 
-            var userEntity = Mapper.Map<User>(userDto);
-            userEntity.Password = EncryptPassword(userDto.Password);
             
-            _repository.Add(userEntity);
-            result = UoW.SaveChanges() != 0; 
-
-            return new ServerResponseDto
+            try
             {
-                Id = userDto.Id,
-                Success = result
-            }; 
+                bool result;
+                var userEntity = Mapper.Map<User>(userDto);
+                userEntity.Password = EncryptPassword(userDto.Password);
+
+                userEntity.Roles = new List<Role>(); 
+                _repository.Add(userEntity);
+
+                var roles = userDto.Roles; 
+                userEntity.Roles.AddRange(roles);
+
+                result = UoW.SaveChanges() != 0;
+
+                return new ServerResponseDto
+                {
+                    Id = userEntity.Id,
+                    Success = result
+                };
+            }
+            catch(Exception ex) {
+                return new ServerResponseDto
+                {
+                    Message = ex.Message
+                };
+            }
+            
         }
 
         public void UpdateUser(UserDto userDto)
