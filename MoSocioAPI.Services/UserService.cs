@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using InvoicingPlan.Model;
+using MoSocioAPI.DAC.Repositories;
 using MoSocioAPI.DTO;
 using MoSocioAPI.Shared;
 using MoSocioAPI.Shared.Repositories;
@@ -14,16 +15,17 @@ namespace MoSocioAPI.Services
 {
     public class UserService : BaseService, IUserService
     {
-        private readonly IUserRepository _repository; 
+        private readonly IUserRepository _repository;
+
         public UserService(IUnitOfWork uoW) : base(uoW)
         {
-            _repository = uoW.Repository<IUserRepository>(); 
+            _repository = uoW.Repository<IUserRepository>();
         }
 
         public void DeleteUser(int id)
         {
             var user = _repository.GetById(id);
-            _repository.Delete(user); 
+            _repository.Delete(user);
         }
 
         public IEnumerable<UserDto> GetAllUSersWithRoles()
@@ -35,8 +37,8 @@ namespace MoSocioAPI.Services
 
         public UserDto GetUserById(int id)
         {
-           var user = _repository.GetById(id);
-            return Mapper.Map<UserDto>(user); 
+            var user = _repository.GetById(id);
+            return Mapper.Map<UserDto>(user);
         }
 
         public UserDto GetuserByLogin(UserLoginDto loginDto)
@@ -44,25 +46,24 @@ namespace MoSocioAPI.Services
             var passwordEncripted = EncryptPassword(loginDto.Password);
             var userEntity = _repository.GetUserByLogin(loginDto.UserName, passwordEncripted);
 
-            return Mapper.Map<UserDto>(userEntity); 
+            return Mapper.Map<UserDto>(userEntity);
         }
 
         public ServerResponseDto SaveUser(UserDto userDto)
         {
-            
             try
             {
                 bool result;
                 var userEntity = Mapper.Map<User>(userDto);
                 userEntity.Password = EncryptPassword(userDto.Password);
 
-                userEntity.Roles = new List<Role>(); 
+                userEntity.Roles = new List<Role>();
                 _repository.Add(userEntity);
 
-                var roles = userDto.Roles; 
-                userEntity.Roles.AddRange(roles);
-
                 result = UoW.SaveChanges() != 0;
+
+                if (result)
+                    Associate(userDto, userEntity.Id);
 
                 return new ServerResponseDto
                 {
@@ -70,18 +71,19 @@ namespace MoSocioAPI.Services
                     Success = result
                 };
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 return new ServerResponseDto
                 {
                     Message = ex.Message
                 };
             }
-            
+
         }
 
         public void UpdateUser(UserDto userDto)
         {
-            var userEntity = Mapper.Map<User>(userDto); 
+            var userEntity = Mapper.Map<User>(userDto);
             _repository.Update(userEntity);
         }
 
@@ -92,9 +94,17 @@ namespace MoSocioAPI.Services
             var hash = md5.ComputeHash(code);
 
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < hash.Length; i++)
+            for (int i = 0; i < hash.Length; i++)
                 sb.Append(hash[i].ToString("X2"));
             return sb.ToString();
+        }
+        private void Associate(UserDto userDto, int entityId)
+        {
+            var roles = userDto.Roles;
+            var result = _repository.AssociateUserRoles(entityId, roles);
+
+            if (result)
+                UoW.SaveChanges(); 
         }
     }
 }

@@ -8,6 +8,7 @@ namespace MoSocioAPI.DAC.Repositories
         public RoleRepository(MoSocioAPIDbContext context)
             : base(context)
         {
+
         }
     }
 }

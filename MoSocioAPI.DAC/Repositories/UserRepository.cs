@@ -29,5 +29,25 @@ namespace MoSocioAPI.DAC.Repositories
                 return null;
             return userWithRole;
         }
+
+        public bool AssociateUserRoles(int entityId, List<Role> roles)
+        {
+            var userEntity = _context.Users.FirstOrDefault(u=>u.Id == entityId);
+
+            if(userEntity is null||roles is null)
+                return false;
+
+            userEntity.Roles.Clear(); 
+
+            foreach (var role in roles)
+            {
+                var roleEntity = _context.Roles.FirstOrDefault(r => r.Id == role.Id); 
+                if(roleEntity!=null)
+                    userEntity.Roles.Add(roleEntity);
+            }
+
+            return true; 
+        }
+
     }
 }

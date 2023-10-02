@@ -8,5 +8,7 @@ namespace MoSocioAPI.Shared.Repositories
         User GetUserByLogin(string userName, string password);
 
         IEnumerable<User> GetAllUserWithRole();
+
+        bool AssociateUserRoles(int entityId, List<Role> roles); 
     }
 }
