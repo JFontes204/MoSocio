@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using InvoicingPlan.Model;
+using MoSocioAPI.DAC.Repositories;
 using MoSocioAPI.DTO;
 using MoSocioAPI.Shared;
 using MoSocioAPI.Shared.Repositories;
 using MoSocioAPI.Shared.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,29 +15,30 @@ namespace MoSocioAPI.Services
 {
     public class UserService : BaseService, IUserService
     {
-        private readonly IUserRepository _repository; 
+        private readonly IUserRepository _repository;
+
         public UserService(IUnitOfWork uoW) : base(uoW)
         {
-            _repository = uoW.Repository<IUserRepository>(); 
+            _repository = uoW.Repository<IUserRepository>();
         }
 
         public void DeleteUser(int id)
         {
             var user = _repository.GetById(id);
-            _repository.Delete(user); 
+            _repository.Delete(user);
         }
 
-        public IEnumerable<UserDto> GetAllUSers()
+        public IEnumerable<UserDto> GetAllUSersWithRoles()
         {
-            var usersEntity = _repository.GetAll().ToList();
+            var usersEntity = _repository.GetAllUserWithRole().ToList();
 
             return Mapper.Map<IEnumerable<UserDto>>(usersEntity);
         }
 
         public UserDto GetUserById(int id)
         {
-           var user = _repository.GetById(id);
-            return Mapper.Map<UserDto>(user); 
+            var user = _repository.GetById(id);
+            return Mapper.Map<UserDto>(user);
         }
 
         public UserDto GetuserByLogin(UserLoginDto loginDto)
@@ -43,28 +46,44 @@ namespace MoSocioAPI.Services
             var passwordEncripted = EncryptPassword(loginDto.Password);
             var userEntity = _repository.GetUserByLogin(loginDto.UserName, passwordEncripted);
 
-            return Mapper.Map<UserDto>(userEntity); 
+            return Mapper.Map<UserDto>(userEntity);
         }
 
         public ServerResponseDto SaveUser(UserDto userDto)
         {
-            bool result; 
-            var userEntity = Mapper.Map<User>(userDto);
-            userEntity.Password = EncryptPassword(userDto.Password);
-            
-            _repository.Add(userEntity);
-            result = UoW.SaveChanges() != 0; 
-
-            return new ServerResponseDto
+            try
             {
-                Id = userDto.Id,
-                Success = result
-            }; 
+                bool result;
+                var userEntity = Mapper.Map<User>(userDto);
+                userEntity.Password = EncryptPassword(userDto.Password);
+
+                userEntity.Roles = new List<Role>();
+                _repository.Add(userEntity);
+
+                result = UoW.SaveChanges() != 0;
+
+                if (result)
+                    Associate(userDto, userEntity.Id);
+
+                return new ServerResponseDto
+                {
+                    Id = userEntity.Id,
+                    Success = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServerResponseDto
+                {
+                    Message = ex.Message
+                };
+            }
+
         }
 
         public void UpdateUser(UserDto userDto)
         {
-            var userEntity = Mapper.Map<User>(userDto); 
+            var userEntity = Mapper.Map<User>(userDto);
             _repository.Update(userEntity);
         }
 
@@ -75,9 +94,17 @@ namespace MoSocioAPI.Services
             var hash = md5.ComputeHash(code);
 
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < hash.Length; i++)
+            for (int i = 0; i < hash.Length; i++)
                 sb.Append(hash[i].ToString("X2"));
             return sb.ToString();
+        }
+        private void Associate(UserDto userDto, int entityId)
+        {
+            var roles = userDto.Roles;
+            var result = _repository.AssociateUserRoles(entityId, roles);
+
+            if (result)
+                UoW.SaveChanges(); 
         }
     }
 }
